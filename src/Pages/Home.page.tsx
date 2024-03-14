@@ -1,9 +1,7 @@
-import { Product } from "../sections/Product/Product";
+import { Product } from '../sections/Product/Product';
 
-export const HomePage=() => {
-  return (
-    <>
-      <Product/>
-    </>
-  );
-}
+export const HomePage = () => (
+  <>
+    <Product />
+  </>
+);
