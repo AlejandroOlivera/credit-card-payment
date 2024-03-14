@@ -1,0 +1,19 @@
+/* Frame 36 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+position: absolute;
+width: 50px;
+height: 50px;
+left: 50px;
+top: 223px;
+
+border: 1px solid #E6E6E6;
+border-radius: 12px;
