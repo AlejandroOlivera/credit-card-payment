@@ -1,8 +1,7 @@
-import { Button } from "./Button";
-
+import { WButton } from './Button';
 
 export default {
-  title: 'Welcome',
+  title: 'WButton',
 };
 
-export const Usage = () => <Button />;
+export const Usage = () => <WButton title="" onClick={() => {}} />;

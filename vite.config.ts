@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -45,6 +45,9 @@ export default defineConfig({
     },
   })],
   test: {
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+    },
     globals: true,
     environment: 'jsdom',
     setupFiles: './vitest.setup.mjs',
