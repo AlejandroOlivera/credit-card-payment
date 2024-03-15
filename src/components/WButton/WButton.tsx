@@ -4,7 +4,7 @@ interface IWbutton {
   title: string;
   onClick: () => void;
   styles?: string;
-  icon: React.ReactNode; //SVG icon
+  icon?: React.ReactNode; //SVG icon
 }
 
 export const WButton: React.FC<IWbutton> = ({ title, onClick, styles, icon }) => (

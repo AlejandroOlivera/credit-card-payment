@@ -5,6 +5,6 @@ interface ImageProps {
   alt: string;
 }
 
-export const WImage: React.FC<ImageProps> = ({ src, alt }) => {
-  return <img src={src} alt={alt} />;
-};
+export const WImage: React.FC<ImageProps> = ({ src, alt }) => (
+  <img width={50} src={src} alt={alt} />
+);
