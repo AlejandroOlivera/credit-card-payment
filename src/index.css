@@ -13,10 +13,6 @@
 }
 
 body {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  width: 100vw; /* Ancho de la pantalla */
-  height: 100vh; /* Alto de la pantalla */
+  height: 100vh;
   background: #d0cfcf;
 }
