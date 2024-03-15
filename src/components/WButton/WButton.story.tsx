@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { WButton } from './WButton';
 import classes from './WButton.module.css';
 
@@ -7,4 +7,6 @@ export default {
   component: WButton,
 } as Meta;
 
-export const Usage = () => <WButton styles={classes.button} title="Prueba" onClick={() => {}} />;
+export const ButtonStory: StoryFn<any> = (args) => (
+  <WButton styles={classes.button} title="Prueba" onClick={() => {}} />
+);

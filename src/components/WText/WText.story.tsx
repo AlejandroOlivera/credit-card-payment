@@ -6,9 +6,4 @@ export default {
   component: WText,
 } as Meta;
 
-const Template: StoryFn<any> = (args) => <WText {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'WText',
-};
+export const TextStory: StoryFn<any> = (args) => <WText text="Hola" />;
