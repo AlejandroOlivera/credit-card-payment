@@ -1,15 +1,14 @@
-import { Meta, Story } from '@storybook/react';
-import { Button } from '../../components/Button/Button';
-
+import { Meta, StoryFn } from '@storybook/react';
+import { Product } from './Product';
 
 export default {
-  title: 'Sections/Product/Button',
-  component: Button,
+  title: 'Sections/Product',
+  component: Product,
 } as Meta;
 
-const Template: Story<any> = (args) => <Button {...args} />;
+const Template: StoryFn<any> = (args) => <Product {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Button',
+  children: 'Product',
 };
