@@ -6,4 +6,4 @@ export default {
   component: WText,
 } as Meta;
 
-export const TextStory: StoryFn<any> = (args) => <WText text="Hola" />;
+export const TextStory: StoryFn<any> = () => <WText text="Hola" />;
