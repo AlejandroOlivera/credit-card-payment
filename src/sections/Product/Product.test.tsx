@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@test-utils';
 import { Product } from './Product';
+import { fireEvent, render, screen } from '@test-utils';
 
 describe('Welcome component', () => {
   it('has correct Vite guide link', () => {
@@ -12,8 +12,8 @@ describe('Welcome component', () => {
     expect(screen.getByText('4.9')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Wireless Over-ear Industry Leading Noise Canceling Headphones with Microphone'
-      )
+        'Wireless Over-ear Industry Leading Noise Canceling Headphones with Microphone',
+      ),
     ).toBeInTheDocument();
     expect(screen.getByText('$50.09')).toBeInTheDocument();
     expect(screen.getByText('Paid with credit card')).toBeInTheDocument();

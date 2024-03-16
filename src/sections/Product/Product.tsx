@@ -1,20 +1,18 @@
-import { useState } from 'react';
-import { Modal } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
-
-import { WText } from '@/components/WText/WText';
+import { useDispatch } from 'react-redux';
 import classes from './Product.module.css';
-import { WFrame } from '@/components/WFrame/WFrame';
+import { openModal } from './productSlice';
 import { WButton } from '@/components/WButton/WButton';
+import { WFrame } from '@/components/WFrame/WFrame';
+import { WText } from '@/components/WText/WText';
 
 interface IProduct {}
 
-const MOBILE_MEDIA_QUERY = '(max-width: 50em)';
-
 export const Product: React.FC<IProduct> = () => {
-  const [isShowModal, setIsShowModal] = useState(false);
-  const isMobile = useMediaQuery(MOBILE_MEDIA_QUERY);
+  const dispatch = useDispatch();
 
+  const showModal = () => {
+    dispatch(openModal());
+  };
   return (
     <section className={classes.product}>
       <div className={classes.headerProduct}>
@@ -55,11 +53,9 @@ export const Product: React.FC<IProduct> = () => {
         <WButton
           styles={classes.buttonProduct}
           title="Paid with credit card"
-          onClick={() => setIsShowModal(true)}
+          onClick={showModal}
         />
       </div>
-
-      <Modal fullScreen={isMobile} opened={isShowModal} onClose={() => setIsShowModal(false)} />
     </section>
   );
 };
