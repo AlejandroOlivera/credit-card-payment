@@ -5,6 +5,6 @@ interface FrameProps {
   styles?: string;
 }
 
-export const Frame: React.FC<FrameProps> = ({ children, styles }) => (
+export const WFrame: React.FC<FrameProps> = ({ children, styles }) => (
   <div className={styles}>{children}</div>
 );
