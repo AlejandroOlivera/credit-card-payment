@@ -1,0 +1,204 @@
+.cartDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 0px;
+  gap: 17.92px;
+  width: 336px;
+  height: 232.7px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 14.34px;
+  width: 292.67px;
+  height: 41px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+
+  width: 155px;
+  height: 41px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.textImage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  width: 104px;
+  height: 38px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.image {
+  width: 41px;
+  height: 41px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+}
+
+.textQty {
+  width: 39px;
+  height: 16px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8a86cb;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.divider {
+  background: #ececec;
+  width: 336px;
+  height: 0.9px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.proceBreakup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 19.97px;
+
+  width: 291.78px;
+  height: 114.97px;
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.pricesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 14px;
+
+  width: 291.78px;
+  height: 73px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.subtotal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  justify-content: space-between;
+
+  width: 291.67px;
+  height: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.shippin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  justify-content: space-between;
+
+  width: 291.78px;
+  height: 15px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.tax {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  justify-content: space-between;
+
+  width: 291.59px;
+  height: 15px;
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  justify-content: space-between;
+  width: 291.66px;
+  height: 22px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.text {
+  /* Shipping & Handling */
+
+  width: 130px;
+  height: 15px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 102% */
+  display: flex;
+  align-items: center;
+
+  color: #3a358a;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

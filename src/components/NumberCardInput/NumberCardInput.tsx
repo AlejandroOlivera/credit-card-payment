@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { WInput } from '../WInput/WInput';
 import { CardTypeDisplay } from '../CardTypeDisplay/CardTypeDisplay';
 import classes from './NumberCardInput.module.css';
-import { setCardNumber } from '@/sections/CreditCardInfo/creditCardInfoSlice';
+import {
+  setCardNumber,
+  setCardType,
+} from '@/sections/CreditCardInfo/creditCardInfoSlice';
 import { RootState } from '@/store/store';
 
 /**
@@ -22,8 +25,7 @@ export const NumberCardInput = () => {
   const cardNumber = useSelector(
     (state: RootState) => state.creditCard.cardNumber,
   );
-
-  const [cardType, setCardType] = useState('');
+  const cardType = useSelector((state: RootState) => state.creditCard.cardType);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
@@ -33,7 +35,7 @@ export const NumberCardInput = () => {
 
     if (value === '') {
       // Si el valor es una cadena vacía, establece el tipo de tarjeta en una cadena vacía y el número de tarjeta también en una cadena vacía.
-      setCardType('');
+      dispatch(setCardType(''));
       dispatch(setCardNumber(''));
       return;
     }
@@ -50,11 +52,11 @@ export const NumberCardInput = () => {
       // Determinar el tipo de tarjeta
 
       if (/^4/.test(value)) {
-        setCardType('visa');
+        dispatch(setCardType('visa'));
       } else if (/^5[1-5]/.test(value)) {
-        setCardType('mastercard');
+        dispatch(setCardType('mastercard'));
       } else if (/^3[47]/.test(value)) {
-        setCardType('amex');
+        dispatch(setCardType('amex'));
       }
 
       // Agregar espacios según el tipo de tarjeta

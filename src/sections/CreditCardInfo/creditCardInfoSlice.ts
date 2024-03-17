@@ -5,6 +5,7 @@ export interface CreditCardState {
   name: string;
   expiryDate: string;
   cvc: string;
+  cardType: string
 }
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   name: '',
   expiryDate: '',
   cvc: '',
+  cardType:''
 };
 
 const creditCardSlice = createSlice({
@@ -30,6 +32,10 @@ const creditCardSlice = createSlice({
     setCvc(state, action) {
       state.cvc = action.payload;
     },
+    setCardType(state, action) {
+      state.cardType = action.payload;
+    },
+  
     resetCreditCard(state) {
       state.cardNumber = '';
       state.name = '';
@@ -44,6 +50,7 @@ export const {
   setName,
   setExpiryDate,
   setCvc,
+  setCardType,
   resetCreditCard,
 } = creditCardSlice.actions;
 
