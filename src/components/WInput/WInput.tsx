@@ -9,6 +9,7 @@ interface IWInput {
   inputLabel?: string;
   errorMessage?: string;
   styles?: string;
+  onBlur?: (e: any) => void;
 }
 export const WInput: React.FC<IWInput> = ({
   onChange,
@@ -19,6 +20,7 @@ export const WInput: React.FC<IWInput> = ({
   inputLabel,
   errorMessage,
   styles,
+  onBlur,
 }) => (
   <Input.Wrapper label={inputLabel} error={errorMessage}>
     <Input
@@ -28,6 +30,7 @@ export const WInput: React.FC<IWInput> = ({
       onChange={onChange}
       type={type}
       placeholder={placeholder}
+      onBlur={onBlur}
     />
   </Input.Wrapper>
 );

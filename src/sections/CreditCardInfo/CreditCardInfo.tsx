@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Flex, Modal } from '@mantine/core';
 
-import { RootState } from '@/store/store';
-import { closeModal } from '../Product/productSlice';
-
 import { NumberCardInput } from '@/components/NumberCardInput/NumberCardInput';
 import { WInput } from '@/components/WInput/WInput';
 import { ExpiryDateInput } from '@/components/ExpiryDateInput/ExpiryDateInput';
 import { WButton } from '@/components/WButton/WButton';
 import { CvcInput } from '@/components/CvcInput/CvcInput';
+import { RootState } from '@/store/store';
+
+import { closeModal } from '../Product/productSlice';
+
+import classes from './CreditCardInfo.module.css';
 
 export const CreditCardInfo = () => {
   const dispatch = useDispatch();
@@ -38,12 +40,21 @@ export const CreditCardInfo = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <Flex gap={10}>
-        <ExpiryDateInput />
-        <CvcInput />
-      </Flex>
 
-      <WButton title="Pay Now" onClick={() => {}} />
+      <Flex direction="column" mt={20}>
+        <Flex gap={50} mb={20}>
+          <ExpiryDateInput />
+          <CvcInput />
+        </Flex>
+
+        <Flex justify="end">
+          <WButton
+            styles={classes.creditButton}
+            title="Add Credit card"
+            onClick={showModal}
+          />
+        </Flex>
+      </Flex>
     </Modal>
   );
 };
