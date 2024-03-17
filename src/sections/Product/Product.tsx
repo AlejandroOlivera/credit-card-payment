@@ -13,6 +13,7 @@ export const Product: React.FC<IProduct> = () => {
   const showModal = () => {
     dispatch(openModal());
   };
+
   return (
     <section className={classes.product}>
       <div className={classes.headerProduct}>

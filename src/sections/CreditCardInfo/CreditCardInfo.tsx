@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Modal } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { RootState } from '@/store/store';
 import { closeModal } from '../Product/productSlice';
+
+import { NumberCardInput } from '@/components/NumberCardInput/NumberCardInput';
 
 const MOBILE_MEDIA_QUERY = '(max-width: 50em)';
 
@@ -17,10 +20,13 @@ export const CreditCardInfo = () => {
 
   return (
     <Modal
+      title="Add a credit card"
       fullScreen={isMobile}
       opened={product.showModal}
       onClose={showModal}
       centered
-    />
+    >
+      <NumberCardInput />
+    </Modal>
   );
 };

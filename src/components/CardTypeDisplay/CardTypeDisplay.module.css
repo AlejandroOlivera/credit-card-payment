@@ -1,0 +1,15 @@
+.cardTypeDisplay {
+  display: flex;
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+}
+
+.cardImg {
+  margin-left: 0.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.cardImgUnselected {
+  opacity: 0.2;
+}

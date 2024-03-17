@@ -1,0 +1,36 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+  position: relative;
+}
+
+.formInput {
+  width: 100%;
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.cardTypeDisplay {
+  display: flex;
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+}
+
+.cardImg {
+  transition: opacity 0.2s ease;
+}
+
+.cardImg + .cardImg {
+  margin-left: 0.25rem;
+}
+
+.cardImgUnselected {
+  opacity: 0.2;
+}
