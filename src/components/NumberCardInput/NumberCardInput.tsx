@@ -3,6 +3,16 @@ import { WInput } from '../WInput/WInput';
 import { CardTypeDisplay } from '../CardTypeDisplay/CardTypeDisplay';
 import classes from './NumberCardInput.module.css';
 
+/**
+ * The `NumberCardInput` component in TypeScript React manages input for a credit card number,
+ * determines the card type based on the number input, and displays the card type alongside the input
+ * field.
+ * @returns The `NumberCardInput` component is being returned. It consists of a form group containing a
+ * `WInput` component for entering a credit card number and a `CardTypeDisplay` component for
+ * displaying the type of credit card (Visa, Mastercard, Amex) based on the input provided. The
+ * `handleChange` function is responsible for handling changes in the input field and formatting the
+ * credit card
+ */
 export const NumberCardInput = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [cardType, setCardType] = useState('');

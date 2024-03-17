@@ -16,7 +16,7 @@ export const Product: React.FC<IProduct> = () => {
 
   return (
     <section className={classes.product}>
-      <div className={classes.headerProduct}>
+      <div className={classes.headerProduct} data-testid="product-section">
         <div className={classes.headPhoneMinis}>
           <WFrame styles={classes.frameSelect}>
             <img src="/HeadPhoneMini1.png" alt="headphoneMini1" />

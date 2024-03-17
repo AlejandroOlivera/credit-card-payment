@@ -9,8 +9,6 @@ describe('CardTypeDisplay Component', () => {
       <CardTypeDisplay cards={['visa', 'mastercard', 'amex']} />,
     );
 
-    // Verifica que las imágenes SVG se estén renderizando correctamente
-
     const mastercardSvg = getByTestId('mastercard');
     const amexSvg = getByTestId('amex');
 
