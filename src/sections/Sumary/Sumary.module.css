@@ -1,0 +1,30 @@
+.sumary {
+    margin-top: 100px;
+    max-width: 420px;
+    height: 100%;
+    background: linear-gradient(167.44deg, #fdfeff 0%, #f2f9ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+    gap: 50px;
+    margin: 0 auto;
+  }
+
+.cartDetail {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+padding: 20px 0px;
+gap: 17.92px;
+
+
+width: 336px;
+height: 232.7px;
+
+background: #FFFFFF;
+border-radius: 20px;
+
+}
