@@ -1,10 +1,17 @@
 import { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { WInput } from '../WInput/WInput';
+import { RootState } from '@/store/store';
+import { setExpiryDate } from '@/sections/CreditCardInfo/creditCardInfoSlice';
 
 const INVALID_EXPIRY_DATE_ERROR = 'Fecha de vencimiento no válida';
 
 export const ExpiryDateInput = () => {
-  const [date, setDate] = useState('');
+  const dispatch = useDispatch();
+  const expiryDate = useSelector(
+    (state: RootState) => state.creditCard.expiryDate,
+  );
   const [errorMessage, setErrorMessage] = useState('');
 
   const getCurrentDateDetails = () => {
@@ -20,12 +27,12 @@ export const ExpiryDateInput = () => {
       let { value: inputValue } = e.target;
 
       // Inserta un '/' después del primer par de números solo si no hay '/' ya y el usuario no está borrando
-      if (inputValue.length === 2 && date.length === 1) {
+      if (inputValue.length === 2 && expiryDate.length === 1) {
         inputValue += '/';
       }
 
       // Permite borrar el '/'
-      if (date.length === 3 && inputValue.length === 1) {
+      if (expiryDate.length === 3 && inputValue.length === 1) {
         inputValue = inputValue.slice(0, 1);
       }
 
@@ -57,15 +64,15 @@ export const ExpiryDateInput = () => {
         setErrorMessage('');
       }
 
-      setDate(inputValue);
+      dispatch(setExpiryDate(inputValue));
     },
 
-    [date],
+    [expiryDate],
   );
 
   return (
     <WInput
-      value={date}
+      value={expiryDate}
       width={50}
       inputLabel="Expiry date"
       type="text"
