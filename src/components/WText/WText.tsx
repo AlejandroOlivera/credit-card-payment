@@ -5,4 +5,6 @@ interface IWText {
   styles?: string;
 }
 
-export const WText: React.FC<IWText> = ({ text, styles }) => <Text className={styles}>{text}</Text>;
+export const WText: React.FC<IWText> = ({ text, styles }) => (
+  <Text className={styles}>{text}</Text>
+);

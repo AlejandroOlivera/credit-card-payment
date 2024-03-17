@@ -8,7 +8,9 @@ describe('WText Component', () => {
   });
 
   it('should apply the styles passed as a prop', () => {
-    const { getByText } = render(<WText text="Styled Text" styles="custom-style" />);
+    const { getByText } = render(
+      <WText text="Styled Text" styles="custom-style" />,
+    );
     expect(getByText('Styled Text')).toHaveClass('custom-style');
   });
 });

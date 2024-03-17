@@ -9,5 +9,10 @@ export default {
 } as Meta;
 
 export const ButtonStory: StoryFn<any> = () => (
-  <WButton icon={<FaArrowRight />} styles={classes.button} title="Prueba" onClick={() => {}} />
+  <WButton
+    icon={<FaArrowRight />}
+    styles={classes.button}
+    title="Prueba"
+    onClick={() => {}}
+  />
 );
