@@ -6,7 +6,7 @@ describe('WFrame Component', () => {
     const { getByText } = render(
       <WFrame>
         <div>Test Child</div>
-      </WFrame>
+      </WFrame>,
     );
     expect(getByText('Test Child')).toBeInTheDocument();
   });
@@ -15,7 +15,7 @@ describe('WFrame Component', () => {
     const { container } = render(
       <WFrame>
         <div>Test Child</div>
-      </WFrame>
+      </WFrame>,
     );
     expect(container.firstChild).not.toHaveAttribute('class');
   });

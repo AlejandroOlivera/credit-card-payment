@@ -6,7 +6,6 @@ import classes from './NumberCardInput.module.css';
 export const NumberCardInput = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [cardType, setCardType] = useState('');
-  console.log('🚀 ~ NumberCardInput ~ cardType:', cardType);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;

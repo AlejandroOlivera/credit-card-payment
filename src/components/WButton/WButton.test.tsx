@@ -20,7 +20,13 @@ describe('Welcome component', () => {
   });
 
   test('test_apply_styles_to_button', () => {
-    render(<WButton title="Styled Button" onClick={() => {}} styles="custom-style" />);
+    render(
+      <WButton
+        title="Styled Button"
+        onClick={() => {}}
+        styles="custom-style"
+      />,
+    );
     const buttonElement = screen.getByRole('button', { name: 'Styled Button' });
     expect(buttonElement).toHaveClass('custom-style');
   });

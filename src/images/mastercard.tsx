@@ -7,6 +7,7 @@ export default (
     viewBox="0 0 24 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    id="mastercard"
   >
     <g fill="none" fillRule="evenodd">
       <rect fill="#252525" height="16" rx="2" width="24" />

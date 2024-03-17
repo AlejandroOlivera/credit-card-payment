@@ -25,10 +25,14 @@ export const CardTypeDisplay: React.FC<CardTypeDisplayProps> = ({
   <div className={classes.cardTypeDisplay}>
     {cards.map((card) => (
       <div
+        id={`${classes.cardImg} ${
+          selected && card !== selected ? classes.cardImgUnselected : ''
+        }`}
         className={`${classes.cardImg} ${
           selected && card !== selected ? classes.cardImgUnselected : ''
         }`}
         key={card}
+        data-testid={card}
       >
         {cardsImages[card]}
       </div>
