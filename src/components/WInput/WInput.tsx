@@ -2,8 +2,8 @@ import { Input } from '@mantine/core';
 
 interface IWInput {
   type: React.HTMLInputTypeAttribute;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   width?: number | string;
   inputLabel?: string;

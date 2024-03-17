@@ -6,12 +6,20 @@ import classes from './NumberCardInput.module.css';
 export const NumberCardInput = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [cardType, setCardType] = useState('');
+  console.log('🚀 ~ NumberCardInput ~ cardType:', cardType);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
 
     // Eliminar cualquier carácter que no sea un número
     value = value.replace(/\D/g, '');
+
+    if (value === '') {
+      // Si el valor es una cadena vacía, establece el tipo de tarjeta en una cadena vacía y el número de tarjeta también en una cadena vacía.
+      setCardType('');
+      setCardNumber('');
+      return;
+    }
 
     if (!/^3[47]/.test(value)) {
       value = value.slice(0, 16);
