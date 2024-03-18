@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import classes from './Product.module.css';
-import { openModal } from './productSlice';
+import { addProduct } from './productSlice';
 import { WButton } from '@/components/WButton/WButton';
 import { WFrame } from '@/components/WFrame/WFrame';
 import { WText } from '@/components/WText/WText';
@@ -11,7 +11,14 @@ export const Product: React.FC<IProduct> = () => {
   const dispatch = useDispatch();
 
   const showModal = () => {
-    dispatch(openModal());
+    dispatch(
+      addProduct({
+        id: 1,
+        name: 'Sony WH-1000XM4',
+        price: 50.09,
+        showModal: true,
+      }),
+    );
   };
 
   return (

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Flex, Modal } from '@mantine/core';
+import { Flex, Loader, Modal } from '@mantine/core';
+import { useState } from 'react';
 
 import { NumberCardInput } from '@/components/NumberCardInput/NumberCardInput';
 import { ExpiryDateInput } from '@/components/ExpiryDateInput/ExpiryDateInput';
@@ -11,14 +12,32 @@ import { closeModal } from '../Product/productSlice';
 
 import classes from './CreditCardInfo.module.css';
 import { NameCreditCard } from '@/components/NameCreditCard/NameCreditCard';
+import { validateCreditCard } from './creditCardInfoSlice';
 
-export const CreditCardInfo = () => {
+interface ICreditCardInfo {
+  onActionChange: () => void;
+}
+
+export const CreditCardInfo: React.FC<ICreditCardInfo> = ({
+  onActionChange,
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const product = useSelector((state: RootState) => state.product);
+  const creditCart = useSelector((state: RootState) => state.creditCard);
 
   const showModal = () => {
     dispatch(closeModal());
+  };
+
+  const addCreditCard = () => {
+    dispatch(validateCreditCard());
+    setIsLoading(true);
+    if (creditCart.isValid) {
+      onActionChange();
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -37,12 +56,13 @@ export const CreditCardInfo = () => {
           <ExpiryDateInput />
           <CvcInput />
         </Flex>
+        <Flex justify="end" gap={10} align="center">
+          {isLoading && <Loader flex={1} />}
 
-        <Flex justify="end">
           <WButton
             styles={classes.creditButton}
             title="Add Credit card"
-            onClick={showModal}
+            onClick={addCreditCard}
           />
         </Flex>
       </Flex>

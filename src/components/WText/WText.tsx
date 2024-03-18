@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
 
 interface IWText {
-  text: string;
+  text: string | number;
   styles?: string;
 }
 
