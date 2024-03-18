@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { WInput } from '../WInput/WInput';
 import { RootState } from '@/store/store';
-import { setExpiryDate } from '@/sections/CreditCardInfo/creditCardInfoSlice';
+import {
+  setExpiryDate,
+  setExpiryDateIsValid,
+} from '@/sections/CreditCardInfo/creditCardInfoSlice';
 
 const INVALID_EXPIRY_DATE_ERROR = 'Fecha de vencimiento no válida';
 
@@ -51,13 +54,18 @@ export const ExpiryDateInput = () => {
           inputYear < currentYear ||
           (inputYear === currentYear && inputMonth < currentMonth)
         ) {
+          dispatch(setExpiryDateIsValid(false));
           setErrorMessage('La fecha de vencimiento está en el pasado');
         } else {
+          dispatch(setExpiryDateIsValid(true));
+
           setErrorMessage('');
         }
       } else if (!isValidExpiryDate && inputValue.length === 5) {
+        dispatch(setExpiryDateIsValid(false));
         setErrorMessage(INVALID_EXPIRY_DATE_ERROR);
       } else {
+        dispatch(setExpiryDateIsValid(true));
         setErrorMessage('');
       }
 

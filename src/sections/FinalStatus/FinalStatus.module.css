@@ -1,0 +1,13 @@
+.product {
+  margin-top: 100px;
+  max-width: 420px;
+  height: 100%;
+  background: linear-gradient(167.44deg, #fdfeff 0%, #f2f9ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  gap: 50px;
+  margin: 0 auto;
+}

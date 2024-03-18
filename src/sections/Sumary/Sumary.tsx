@@ -10,9 +10,13 @@ import { WButton } from '@/components/WButton/WButton';
 
 interface ISummary {
   onActionChange: () => void;
+  handleActionChange: (s: string) => void;
 }
 
-export const Summary: React.FC<ISummary> = ({ onActionChange }) => {
+export const Summary: React.FC<ISummary> = ({
+  onActionChange,
+  handleActionChange,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
@@ -40,7 +44,7 @@ export const Summary: React.FC<ISummary> = ({ onActionChange }) => {
       }, 3000);
     } catch (error) {
       setIsError(true);
-      setMessageNotification('Payment failed due to network issue');
+      setMessageNotification('Something went wrong. Please try again later.');
     } finally {
       setIsLoading(false);
       setShowNotification(true);
@@ -49,6 +53,13 @@ export const Summary: React.FC<ISummary> = ({ onActionChange }) => {
 
   return (
     <section className={classes.sumary}>
+      <header>
+        <WButton
+          styles={classes.buttonSumary}
+          title="Back"
+          onClick={() => handleActionChange('product')}
+        />
+      </header>
       <CreditCard />
       <CartDetail />
       <WButton
