@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Credit Card Payment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación de pago con tarjeta de crédito. Permite a los usuarios ingresar detalles de la tarjeta de crédito y procesar pagos.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Validación de la tarjeta de crédito
+- Soporte para múltiples tipos de tarjetas de crédito
+- Interfaz de usuario amigable y fácil de usar
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- Redux
+- TypeScript
 
-- Configure the top-level `parserOptions` property like this:
+## Cómo instalar
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/AlejandroOlivera/credit-card-payment.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2 Navega al directorio del proyecto:
+
+```bash
+cd credit-card-payment
+```
+
+3. Instala las dependencias:
+
+```bash
+pnpm install
+```
+
+5. Inicia la aplicación:
+
+```bash
+pnpm run dev
+```
+
+7. Correr los test
+
+```bash
+   pnpm run vitest
+```
+
+```bash
+   pnpm run coverage
+```

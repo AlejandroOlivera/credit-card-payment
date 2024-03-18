@@ -14,11 +14,6 @@ export const HomePage = () => {
 
   return (
     <>
-      <header>
-        <button type="button" onClick={() => handleActionChange('product')}>
-          <span>Product</span>
-        </button>
-      </header>
       {action === 'product' && (
         <>
           <Product />
@@ -29,7 +24,10 @@ export const HomePage = () => {
       )}
 
       {action === 'summary' && (
-        <Summary onActionChange={() => handleActionChange('finalStatus')} />
+        <Summary
+          handleActionChange={handleActionChange}
+          onActionChange={() => handleActionChange('finalStatus')}
+        />
       )}
       {action === 'finalStatus' && <FinalStatus />}
     </>

@@ -6,7 +6,7 @@ export interface CreditCardState {
   expiryDate: string;
   cvc: string;
   cardType: string;
-  isValid: boolean;
+  expiryDateIsValid: boolean;
 }
 
 const initialState: CreditCardState = {
@@ -15,7 +15,7 @@ const initialState: CreditCardState = {
   expiryDate: '',
   cvc: '',
   cardType: '',
-  isValid: false,
+  expiryDateIsValid: false,
 };
 
 const creditCardSlice = createSlice({
@@ -38,13 +38,8 @@ const creditCardSlice = createSlice({
       state.cardType = action.payload;
     },
 
-    validateCreditCard(state) {
-      state.isValid =
-        state.cardNumber !== '' &&
-        state.name !== '' &&
-        state.expiryDate !== '' &&
-        state.cvc !== '' &&
-        state.cardType !== '';
+    setExpiryDateIsValid(state, action) {
+      state.expiryDateIsValid = action.payload;
     },
 
     resetCreditCard(state) {
@@ -63,7 +58,7 @@ export const {
   setCvc,
   setCardType,
   resetCreditCard,
-  validateCreditCard,
+  setExpiryDateIsValid,
 } = creditCardSlice.actions;
 
 export default creditCardSlice.reducer;
