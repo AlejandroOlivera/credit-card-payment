@@ -29,7 +29,7 @@ describe('CvcInput', () => {
       </Provider>,
     );
 
-    const input = getByPlaceholderText('CVC');
+    const input: any = getByPlaceholderText('CVC');
     fireEvent.change(input, { target: { value: '123' } });
     expect(input.value).toBe('123');
   });
