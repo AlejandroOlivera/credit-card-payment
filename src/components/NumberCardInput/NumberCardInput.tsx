@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useState } from 'react';
 
 import { WInput } from '../WInput/WInput';
 import { CardTypeDisplay } from '../CardTypeDisplay/CardTypeDisplay';
@@ -20,46 +21,54 @@ import { RootState } from '@/store/store';
  * credit card
  */
 export const NumberCardInput = () => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const dispatch = useDispatch();
   const { cardNumber, cardType } = useSelector(
     (state: RootState) => state.creditCard,
   );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let { value } = e.target;
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      let { value } = e.target;
 
-    value = value.replace(/\D/g, '');
+      value = value.replace(/\D/g, '');
 
-    if (value === '') {
-      dispatch(setCardType(''));
-      dispatch(setCardNumber(''));
-      return;
-    }
-
-    if (!/^3[47]/.test(value)) {
-      value = value.slice(0, 16);
-    }
-
-    if (value.length <= 4) {
-      dispatch(setCardNumber(value));
-    } else {
-      if (/^4/.test(value)) {
-        dispatch(setCardType('visa'));
-      } else if (/^5[1-5]/.test(value)) {
-        dispatch(setCardType('mastercard'));
-      } else if (/^3[47]/.test(value)) {
-        dispatch(setCardType('amex'));
+      if (value === '') {
+        dispatch(setCardType(''));
+        dispatch(setCardNumber(''));
+        setErrorMessage('');
+        return;
       }
 
-      if (cardType === 'amex') {
-        value = value.replace(/^(\d{4})(\d{6})(\d{5})$/, '$1 $2 $3');
+      if (!/^3[47]/.test(value)) {
+        value = value.slice(0, 16);
+      }
+
+      if (value.length <= 4) {
+        dispatch(setCardNumber(value));
       } else {
-        value = value.replace(/(\d{4})/g, '$1 ').trim();
-      }
+        if (/^4/.test(value)) {
+          dispatch(setCardType('visa'));
+        } else if (/^5[1-5]/.test(value)) {
+          dispatch(setCardType('mastercard'));
+        } else if (/^3[47]/.test(value)) {
+          dispatch(setCardType('amex'));
+        } else {
+          setErrorMessage('Invalid card number');
+        }
 
-      dispatch(setCardNumber(value));
-    }
-  };
+        if (cardType === 'amex') {
+          value = value.replace(/^(\d{4})(\d{6})(\d{5})$/, '$1 $2 $3');
+        } else {
+          value = value.replace(/(\d{4})/g, '$1 ').trim();
+        }
+
+        dispatch(setCardNumber(value));
+      }
+    },
+    [cardType],
+  );
 
   return (
     <div className={classes.formGroup}>
@@ -69,6 +78,7 @@ export const NumberCardInput = () => {
         type="text"
         value={cardNumber}
         placeholder="Credit card number"
+        errorMessage={errorMessage}
       />
       <CardTypeDisplay
         selected={cardType}
