@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Flex, Loader, Modal } from '@mantine/core';
-import { useState } from 'react';
+import { Flex, Modal } from '@mantine/core';
+import { useCallback, useState } from 'react';
 
 import { NumberCardInput } from '@/components/NumberCardInput/NumberCardInput';
 import { ExpiryDateInput } from '@/components/ExpiryDateInput/ExpiryDateInput';
@@ -12,7 +12,8 @@ import { closeModal } from '../Product/productSlice';
 
 import classes from './CreditCardInfo.module.css';
 import { NameCreditCard } from '@/components/NameCreditCard/NameCreditCard';
-import { validateCreditCard } from './creditCardInfoSlice';
+
+import { WText } from '@/components/WText/WText';
 
 interface ICreditCardInfo {
   onActionChange: () => void;
@@ -22,6 +23,8 @@ export const CreditCardInfo: React.FC<ICreditCardInfo> = ({
   onActionChange,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   const dispatch = useDispatch();
 
   const product = useSelector((state: RootState) => state.product);
@@ -31,14 +34,19 @@ export const CreditCardInfo: React.FC<ICreditCardInfo> = ({
     dispatch(closeModal());
   };
 
-  const addCreditCard = () => {
-    dispatch(validateCreditCard());
-    setIsLoading(true);
-    if (creditCart.isValid) {
+  const addCreditCard = useCallback(() => {
+    if (
+      creditCart.cardNumber !== '' &&
+      creditCart.name !== '' &&
+      creditCart.expiryDate !== '' &&
+      creditCart.expiryDateIsValid
+    ) {
       onActionChange();
-      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+      setErrorMessage('Credit card no valid');
     }
-  };
+  }, [creditCart]);
 
   return (
     <Modal
@@ -57,7 +65,7 @@ export const CreditCardInfo: React.FC<ICreditCardInfo> = ({
           <CvcInput />
         </Flex>
         <Flex justify="end" gap={10} align="center">
-          {isLoading && <Loader flex={1} />}
+          {isLoading && <WText text={errorMessage} />}
 
           <WButton
             styles={classes.creditButton}
