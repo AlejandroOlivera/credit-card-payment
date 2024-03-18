@@ -25,6 +25,7 @@ export default defineConfig({
   test: {
     coverage: {
       reporter: ['text', 'json', 'html'],
+      exclude: ['**/*.story.*', '**/node_modules/**', '**/*.*.cjs'],
     },
     globals: true,
     environment: 'jsdom',

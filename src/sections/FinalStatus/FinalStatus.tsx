@@ -1,3 +1,1 @@
-export const FinalStatus = () => {
-  return <></>;
-};
+export const FinalStatus = () => <></>;

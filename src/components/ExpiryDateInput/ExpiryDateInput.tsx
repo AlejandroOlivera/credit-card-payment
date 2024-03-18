@@ -26,17 +26,14 @@ export const ExpiryDateInput = () => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       let { value: inputValue } = e.target;
 
-      // Inserta un '/' después del primer par de números solo si no hay '/' ya y el usuario no está borrando
       if (inputValue.length === 2 && expiryDate.length === 1) {
         inputValue += '/';
       }
 
-      // Permite borrar el '/'
       if (expiryDate.length === 3 && inputValue.length === 1) {
         inputValue = inputValue.slice(0, 1);
       }
 
-      // Limita la entrada a 5 caracteres en total
       if (inputValue.length > 5) {
         inputValue = inputValue.slice(0, 5);
       }
