@@ -31,7 +31,7 @@ export const CreditCard = () => {
       />
       <div className={classes.brand}>{renderBrand(creditCard.cardType)}</div>
       <WText
-        text={`**** **** **** ${creditCard.cardNumber.substring(12)}`}
+        text={`**** **** **** ${creditCard.cardNumber.substring(14)}`}
         styles={classes.cardNumber}
       />
       <div className={classes.cardHolder}>

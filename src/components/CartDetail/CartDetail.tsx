@@ -24,22 +24,22 @@ export const CartDetail = () => {
         <div className={classes.pricesContainer}>
           <div className={classes.subtotal}>
             <WText styles={classes.text} text="Subtotal" />
-            <WText text={product.price} />
+            <WText text={`$${product.price}`} />
           </div>
 
           <div className={classes.shippin}>
             <WText styles={classes.text} text="Shipping & Handing" />
-            <WText text="3200" />
+            <WText text="Free" />
           </div>
 
           <div className={classes.tax}>
             <WText styles={classes.text} text="Tax" />
-            <WText text="3200" />
+            <WText text="$10" />
           </div>
         </div>
         <div className={classes.total}>
           <WText styles={classes.text} text="Total" />
-          <WText text="3200" />
+          <WText text={`$${product.price + 10}`} />
         </div>
       </div>
     </div>

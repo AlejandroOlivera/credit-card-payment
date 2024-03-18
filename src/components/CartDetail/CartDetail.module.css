@@ -7,7 +7,7 @@
   gap: 17.92px;
   width: 336px;
   height: 232.7px;
-  background: #ffffff;
+  background: #ffff;
   border-radius: 20px;
 }
 
@@ -70,7 +70,7 @@
 .textQty {
   width: 39px;
   height: 16px;
-  font-family: 'Poppins';
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -181,23 +181,20 @@
 }
 
 .text {
-  /* Shipping & Handling */
-
   width: 130px;
   height: 15px;
 
-  font-family: 'DM Sans';
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
-  /* identical to box height, or 102% */
+
   display: flex;
   align-items: center;
 
   color: #3a358a;
 
-  /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;

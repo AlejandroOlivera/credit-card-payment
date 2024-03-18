@@ -14,6 +14,11 @@ export const HomePage = () => {
 
   return (
     <>
+      <header>
+        <button type="button" onClick={() => handleActionChange('product')}>
+          <span>Product</span>
+        </button>
+      </header>
       {action === 'product' && (
         <>
           <Product />
