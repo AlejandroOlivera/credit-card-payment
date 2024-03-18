@@ -1,15 +1,19 @@
+import { useSelector } from 'react-redux';
 import { Divider } from '@mantine/core';
 import { WText } from '../WText/WText';
 import classes from './CartDetail.module.css';
+import { RootState } from '@/store/store';
 
 export const CartDetail = () => {
+  const product = useSelector((state: RootState) => state.product);
+
   return (
     <div className={classes.cartDetail}>
       <div className={classes.list}>
         <div className={classes.imageContainer}>
           <img className={classes.image} src="/HeadPhoneMini1.png" alt="" />
           <div className={classes.textContainer}>
-            <WText text="HeadPhone" />
+            <WText text={product.name} />
             <WText styles={classes.textQty} text="HeadPhone" />
           </div>
         </div>
@@ -20,7 +24,7 @@ export const CartDetail = () => {
         <div className={classes.pricesContainer}>
           <div className={classes.subtotal}>
             <WText styles={classes.text} text="Subtotal" />
-            <WText text="3200" />
+            <WText text={product.price} />
           </div>
 
           <div className={classes.shippin}>

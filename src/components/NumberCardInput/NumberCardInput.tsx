@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { WInput } from '../WInput/WInput';
@@ -22,19 +21,16 @@ import { RootState } from '@/store/store';
  */
 export const NumberCardInput = () => {
   const dispatch = useDispatch();
-  const cardNumber = useSelector(
-    (state: RootState) => state.creditCard.cardNumber,
+  const { cardNumber, cardType } = useSelector(
+    (state: RootState) => state.creditCard,
   );
-  const cardType = useSelector((state: RootState) => state.creditCard.cardType);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
 
-    // Eliminar cualquier carácter que no sea un número
     value = value.replace(/\D/g, '');
 
     if (value === '') {
-      // Si el valor es una cadena vacía, establece el tipo de tarjeta en una cadena vacía y el número de tarjeta también en una cadena vacía.
       dispatch(setCardType(''));
       dispatch(setCardNumber(''));
       return;
@@ -44,13 +40,9 @@ export const NumberCardInput = () => {
       value = value.slice(0, 16);
     }
 
-    // Agregar espacios dependiendo del tipo de tarjeta
     if (value.length <= 4) {
-      // No hay suficientes números para determinar el tipo de tarjeta
       dispatch(setCardNumber(value));
     } else {
-      // Determinar el tipo de tarjeta
-
       if (/^4/.test(value)) {
         dispatch(setCardType('visa'));
       } else if (/^5[1-5]/.test(value)) {
@@ -59,12 +51,9 @@ export const NumberCardInput = () => {
         dispatch(setCardType('amex'));
       }
 
-      // Agregar espacios según el tipo de tarjeta
       if (cardType === 'amex') {
-        // Formato para American Express: XXXX XXXXXX XXXXX
         value = value.replace(/^(\d{4})(\d{6})(\d{5})$/, '$1 $2 $3');
       } else {
-        // Formato para Visa, Mastercard, etc.: XXXX XXXX XXXX XXXX
         value = value.replace(/(\d{4})/g, '$1 ').trim();
       }
 

@@ -12,13 +12,20 @@ import { closeModal } from '../Product/productSlice';
 import classes from './CreditCardInfo.module.css';
 import { NameCreditCard } from '@/components/NameCreditCard/NameCreditCard';
 
-export const CreditCardInfo = () => {
+interface ICreditCardInfo {
+  onActionChange: () => void;
+}
+
+export const CreditCardInfo: React.FC<ICreditCardInfo> = ({
+  onActionChange,
+}) => {
   const dispatch = useDispatch();
 
   const product = useSelector((state: RootState) => state.product);
 
   const showModal = () => {
     dispatch(closeModal());
+    onActionChange();
   };
 
   return (
